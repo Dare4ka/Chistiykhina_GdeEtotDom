@@ -38,8 +38,10 @@
 		padding: 0 25px;
 	}
 
-	&__static {
+	&__fixed {
 		background-color: @c-bg;
+		width: 100%;
+		z-index: 10;
 	}
 }
 
@@ -133,6 +135,15 @@
 		&_new {
 			color: #ffcc00;
 			border-bottom: 2px solid #ffcc00;
+		}
+
+		&_logo {
+
+			&:hover {
+				.cls-1 {
+					fill: #5ebcfb;
+				}
+			}
 		}
 
 		&_bread-crumbs {
@@ -312,6 +323,19 @@
 	&__time {
 		align-self: center;
 		padding: 0 30px;
+		white-space: nowrap
+	}
+
+	&__day {
+		display: inline-block;
+		margin-right: 2px;
+		font-size: 20px;
+		color: #fff;
+		font-weight: bold;
+		line-height: 30px;
+		background-color: @c-bg;
+		border-radius: 2px;
+		padding: 0 5px;
 	}
 }
 
