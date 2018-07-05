@@ -173,6 +173,15 @@
   border-left: 2px solid #b9b9c3;
   background-color: #ebebed;
 }
+.sidebar__block {
+  width: 100%;
+  padding: 10px;
+  border-bottom: 1px solid #b9b9c3;
+}
+.sidebar__block img {
+  width: 100%;
+  height: auto;
+}
 .content {
   width: 100%;
 }
