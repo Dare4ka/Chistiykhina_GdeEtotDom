@@ -1,8 +1,131 @@
 <!DOCTYPE html>
 html(lang="en")
-head
-	meta(charset="UTF-8")
-	title Document
-	link(rel="stylesheet", href="css/style.css")
-body
+	head
+		meta(charset="UTF-8")
+		meta(name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1")
+		title Document
+		link(href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet")
+		link(rel="stylesheet", href="css/style.css")
+	body.page
+		header.head
+			.head__top
+				.head__container
+					nav.menu.menu_location
+						ul.menu__items.menu__items_location
+							li.menu__item.menu__item_location
+								a(href="#").menu__link.menu__link_location.menu__link_active Москва и МО
+							li.menu__item.menu__item_location
+								a(href="#").menu__link.menu__link_location С.-Петербург и ЛО
+							li.menu__item.menu__item_location
+								a(href="#").menu__link.menu__link_location Другие регионы
+							li.menu__item.menu__item_location
+								a(href="#").menu__link.menu__link_location Зарубежная недвижимость
+							li.menu__item.menu__item_location
+								a(href="#").menu__link.menu__link_location Поиск по карте
+					.menu.menu_act
+						ul.menu__items.menu__items_act
+							li.menu__item.menu__item_act
+								a(href="#").menu__link.menu__link_act Разместить объявление
+							li.menu__item.menu__item_act
+								a(href="#").menu__link.menu__link_act Зарегистрироваться
+							li.menu__item.menu__item_act
+								a(href="#").menu__link.menu__link_act.menu__link_dotted Войти
+			.head__fixed
+				.head__container
+					.logo
+						object(data="image/GED-Logo.svg", type="image/svg+xml" width="170px" height="45px").logo__img
+					nav.menu.menu_navigation
+						ul.menu__items.menu__items_navigation
+							li.menu__item.menu__item_navigation
+								a(href="#").menu__link.menu__link_navigation.menu__link_dotted Продажа
+							li.menu__item.menu__item_navigation
+								a(href="#").menu__link.menu__link_navigation.menu__link_dotted Аренда
+							li.menu__item.menu__item_navigation
+								a(href="#").menu__link.menu__link_navigation.menu__link_special Спецпредложения
+							li.menu__item.menu__item_navigation
+								a(href="#").menu__link.menu__link_navigation.menu__link_new Новостройки
+							li.menu__item.menu__item_navigation
+								a(href="#").menu__link.menu__link_navigation Поселки
+							li.menu__item.menu__item_navigation
+								a(href="#").menu__link.menu__link_navigation Риелторы
+							li.menu__item.menu__item_navigation
+								a(href="#").menu__link.menu__link_navigation Журнал
+							li.menu__item.menu__item_navigation
+								a(href="#").menu__link.menu__link_navigation.menu__link_logo
+									include ../image/Absolut-Logo.svg
+					a(href="#").banner
+						p.banner__title Квартиры в подмосковье
+						.banner__block
+							p.banner__text  от 
+							p.banner__cost  1,8
+							p.banner__text  млн руб.
+		
+		main.main
+			article.content
+				.content__container
+					section.content__stocks
+						.menu.menu_bread-crumbs
+							ul.menu__items.menu__items_bread-crumbs
+								li.menu__item.menu__item_bread-crumbs
+									a(href="#").menu__link.menu__link_bread-crumbs Новостройки >
+								li.menu__item.menu__item_bread-crumbs
+									a(href="#").menu__link.menu__link_bread-crumbs Акции и предложения
+						article.best
+							.best__wrap
+								p.best__title ВТБ24 предлагает покупателям «Пресня Сити», «Басманный,5» и «Царская площадь» премиальное банковское обслуживание
+								.best__time
+									p.best__day 5 дней
+									p.best__hour 08 : 34 : 10
+							.until 
+								p.until__text До 31 Января
+							.best__wrap
+								.best__img(style="background-image: url(image/moscow-863528_1280.jpg)")
+								.best__about
+									p.best__text Размещение позиционирует институциональный стратегический маркетинг. Такое понимание ситуации восходит к Эл Райс, при этом нестандартный подход категорически экономит комплексный медиабизнес. Ценовая стратегия индуцирует бренд.
+									p.best__text Узнайте детали акции 
+										a(href="tel:+7495150ХХХХ").best__tel +7 495 150-ХХ-ХХ
+						p.content__title Еще акции
+						mixin stock(img, until, title, text, day1, day2, id)
+							article.stock
+								.stock__img(style="background-image: url(image/#{img})")
+									.until 
+										p.until__text= until
+								.stock__about
+									p.stock__title= title
+									p.stock__text= text
+								p.stock__time Осталось
+									br
+									span.stock__day(id="#{id}")= day1
+									span.stock__day(id="#{id}")= day2
+									|  дней
+						+stock("6a5287_5da00f60f9694308b17d2d4581354356~mv2.jpg_srz_467_234_85_22_0.50_1.20_0.00_jpg_srz.jpg", "До 15 января", "Ноговогодняя скидка 1 000 000 рублей в ЖК SREDA", "Стратегия сегментации, в рамках сегодняшних воззрений, категорически тормозит процесс стратегического планирования.", "0", "8", "stock2")
+						+stock("king_for_a_day-n05wvz8ng98tyfjox934wts5tvc0lanhgdktfrgld8.jpg", "До 15 января", "Ноговогодняя скидка 1 000 000 рублей в ЖК SREDA", "Стратегия сегментации, в рамках сегодняшних воззрений, категорически тормозит процесс стратегического планирования.", "0", "8", "stock3")
+						+stock("20pers_for_all-n05vlkxg3nqavcxwup33c1a2860rn5ggqqazn296i4.jpg", "До 31 января", "ВТБ24 предлагает покупателям «Пресня Сити», «Басманный,5» и «Царская площадь» премиальное банковское обслуживание", "Банк ВТБ24 и девелоперы MR Group и Coalco приготовили для покупателей квартир и апартаментов в комплексах «Пресня Сити», «Басманный,5» и «Царская площадь» новогодний подарок - сертификат на премиальное обслуживание в рамках пакета услуг «Привилегия».", "0", "8", "stock4")
+					section.content__cards
+						p.content__title Другие акции
+						mixin card(href, img, text, until)
+							a(href="#{href}").card
+								.card__img(style="background-image: url(image/#{img})")
+								.card__about
+									p.card__text= text
+									.until 
+										p.until__text= until
+						+card("#", "ccd2ef1a3b82fc1851b6e5f8fdd05cb5-cb300x198.jpeg", "Ноговогодняя скидка 1 000 000 рублей в ЖК SREDA", "До 31 Января")
+						+card("#", "moscow-863528_1280.jpg", "Покупка квартиры в Бэсткон – реальный шанс выиграть автомобиль!", "До 31 Января")
+						+card("#", "6a5287_5da00f60f9694308b17d2d4581354356~mv2.jpg_srz_467_234_85_22_0.50_1.20_0.00_jpg_srz.jpg", "ВТБ24 предлагает покупателям «Пресня Сити», «Басманный,5» и «Царская площадь» премиальное банковское обслуживание", "До 31 Января")
+						+card("#", "ccd2ef1a3b82fc1851b6e5f8fdd05cb5-cb300x198.jpeg", "Ноговогодняя скидка 1 000 000 рублей в ЖК SREDA", "До 31 Января")
+						+card("#", "moscow-863528_1280.jpg", "Покупка квартиры в Бэсткон – реальный шанс выиграть автомобиль!", "До 31 Января")
+						+card("#", "6a5287_5da00f60f9694308b17d2d4581354356~mv2.jpg_srz_467_234_85_22_0.50_1.20_0.00_jpg_srz.jpg", "ВТБ24 предлагает покупателям «Пресня Сити», «Басманный,5» и «Царская площадь» премиальное банковское обслуживание", "До 31 Января")
+			article.sidebar
+				.sidebar__block
+					img(src="image/sidebar1.jpg")
+				.sidebar__block
+					img(src="image/sidebar2.jpg")
+				.sidebar__block
+					img(src="image/sidebar3.jpg")
+
+		
+		script(type="text/javascript" src="js/jquery-3.3.1.min.js")
+		script(type="text/javascript" src="js/common.js")
+
 	
