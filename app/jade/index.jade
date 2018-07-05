@@ -30,7 +30,7 @@ html(lang="en")
 								a(href="#").menu__link.menu__link_act Зарегистрироваться
 							li.menu__item.menu__item_act
 								a(href="#").menu__link.menu__link_act.menu__link_dotted Войти
-			.head__static
+			.head__fixed
 				.head__container
 					.logo
 						object(data="image/GED-Logo.svg", type="image/svg+xml" width="170px" height="45px").logo__img
@@ -51,8 +51,8 @@ html(lang="en")
 							li.menu__item.menu__item_navigation
 								a(href="#").menu__link.menu__link_navigation Журнал
 							li.menu__item.menu__item_navigation
-								a(href="#").menu__link.menu__link_navigation
-									object(data="image/Absolut-Logo.svg", type="image/svg+xml" width="78" height="14.93").logo__img
+								a(href="#").menu__link.menu__link_navigation.menu__link_logo
+									include ../image/Absolut-Logo.svg
 					a(href="#").banner
 						p.banner__title Квартиры в подмосковье
 						.banner__block
@@ -85,7 +85,7 @@ html(lang="en")
 									p.best__text Узнайте детали акции 
 										a(href="tel:+7495150ХХХХ").best__tel +7 495 150-ХХ-ХХ
 						p.content__title Еще акции
-						mixin stock(img, until, title, text, day, id)
+						mixin stock(img, until, title, text, day1, day2, id)
 							article.stock
 								.stock__img(style="background-image: url(image/#{img})")
 									.until 
@@ -95,11 +95,12 @@ html(lang="en")
 									p.stock__text= text
 								p.stock__time Осталось
 									br
-									span.stock__day(id="#{id}")= day
+									span.stock__day(id="#{id}")= day1
+									span.stock__day(id="#{id}")= day2
 									|  дней
-						+stock("6a5287_5da00f60f9694308b17d2d4581354356~mv2.jpg_srz_467_234_85_22_0.50_1.20_0.00_jpg_srz.jpg", "До 15 января", "Ноговогодняя скидка 1 000 000 рублей в ЖК SREDA", "Стратегия сегментации, в рамках сегодняшних воззрений, категорически тормозит процесс стратегического планирования.", "08", "stock2")
-						+stock("king_for_a_day-n05wvz8ng98tyfjox934wts5tvc0lanhgdktfrgld8.jpg", "До 15 января", "Ноговогодняя скидка 1 000 000 рублей в ЖК SREDA", "Стратегия сегментации, в рамках сегодняшних воззрений, категорически тормозит процесс стратегического планирования.", "08", "stock3")
-						+stock("20pers_for_all-n05vlkxg3nqavcxwup33c1a2860rn5ggqqazn296i4.jpg", "До 31 января", "ВТБ24 предлагает покупателям «Пресня Сити», «Басманный,5» и «Царская площадь» премиальное банковское обслуживание", "Банк ВТБ24 и девелоперы MR Group и Coalco приготовили для покупателей квартир и апартаментов в комплексах «Пресня Сити», «Басманный,5» и «Царская площадь» новогодний подарок - сертификат на премиальное обслуживание в рамках пакета услуг «Привилегия».", "08", "stock4")
+						+stock("6a5287_5da00f60f9694308b17d2d4581354356~mv2.jpg_srz_467_234_85_22_0.50_1.20_0.00_jpg_srz.jpg", "До 15 января", "Ноговогодняя скидка 1 000 000 рублей в ЖК SREDA", "Стратегия сегментации, в рамках сегодняшних воззрений, категорически тормозит процесс стратегического планирования.", "0", "8", "stock2")
+						+stock("king_for_a_day-n05wvz8ng98tyfjox934wts5tvc0lanhgdktfrgld8.jpg", "До 15 января", "Ноговогодняя скидка 1 000 000 рублей в ЖК SREDA", "Стратегия сегментации, в рамках сегодняшних воззрений, категорически тормозит процесс стратегического планирования.", "0", "8", "stock3")
+						+stock("20pers_for_all-n05vlkxg3nqavcxwup33c1a2860rn5ggqqazn296i4.jpg", "До 31 января", "ВТБ24 предлагает покупателям «Пресня Сити», «Басманный,5» и «Царская площадь» премиальное банковское обслуживание", "Банк ВТБ24 и девелоперы MR Group и Coalco приготовили для покупателей квартир и апартаментов в комплексах «Пресня Сити», «Басманный,5» и «Царская площадь» новогодний подарок - сертификат на премиальное обслуживание в рамках пакета услуг «Привилегия».", "0", "8", "stock4")
 					section.content__cards
 						p.content__title Другие акции
 						mixin card(href, img, text, until)
@@ -115,13 +116,10 @@ html(lang="en")
 						+card("#", "ccd2ef1a3b82fc1851b6e5f8fdd05cb5-cb300x198.jpeg", "Ноговогодняя скидка 1 000 000 рублей в ЖК SREDA", "До 31 Января")
 						+card("#", "moscow-863528_1280.jpg", "Покупка квартиры в Бэсткон – реальный шанс выиграть автомобиль!", "До 31 Января")
 						+card("#", "6a5287_5da00f60f9694308b17d2d4581354356~mv2.jpg_srz_467_234_85_22_0.50_1.20_0.00_jpg_srz.jpg", "ВТБ24 предлагает покупателям «Пресня Сити», «Басманный,5» и «Царская площадь» премиальное банковское обслуживание", "До 31 Января")
-						
-
-
-
 			article.sidebar
 
-
-
+		
+		script(type="text/javascript" src="js/jquery-3.3.1.min.js")
+		script(type="text/javascript" src="js/common.js")
 
 	
